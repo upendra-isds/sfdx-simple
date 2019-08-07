@@ -10,6 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- template: .salesforcedx.yaml
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
   
