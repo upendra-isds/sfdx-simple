@@ -23,9 +23,5 @@ steps:
   displayName: 'Node Version and path'
 
 - script: |
-    npm run build
-  displayName: 'Compile and package'
-
-- script: |
     npm install sfdx-cli
   displayName: 'sfdx install'
