@@ -12,8 +12,20 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+  
+- task: NodeTool@0
+  inputs:
+    versionSpec: '8.12.0'
+  displayName: 'Install Node.js'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    npm ci
+  displayName: 'Install dependencies'
+
+- script: |
+    npm run build
+  displayName: 'Compile and package'
+
+- script: |
+    npm install sfdx-cli
+  displayName: 'sfdx install'
