@@ -10,7 +10,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- template: .salesforcedx.yaml
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
   
@@ -25,4 +24,8 @@ steps:
 
 - script: |
     npm install sfdx-cli
-  displayName: 'sfdx install'
+- script: sfdx-cli --version
+  displayName: 'sfdx install and version'
+  
+- script: sfdx force:auth:web:login -d -a "Hub Org"
+  displayName: 'sfdx web login auth'
